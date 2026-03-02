@@ -1,0 +1,281 @@
+/* ===== RESET BASE ===== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: 'Press Start 2P', cursive;
+    font-size: clamp(10px, 1.2vw, 16px);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+body {
+    background: url("Assets/WinXP.jpg") no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 1rem;
+    color: #1e3a5f;
+    min-height: 100vh;
+}
+
+/* ===== WINDOW ===== */
+.window {
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+    border: 4px solid #1e3a5f;
+    background: #f4f7fb;
+    box-shadow: 10px 10px 0 #1e3a5f;
+    display: flex;
+    flex-direction: column;
+}
+
+.title-bar {
+    display: flex;
+    align-items: center;
+    padding: .8rem;
+    background: #d6dee8;
+    border-bottom: 4px solid #1e3a5f;
+}
+
+.title-bar h1 { margin: auto; font-size: .8rem; }
+
+.dots span {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 4px;
+}
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+/* ===== LAYOUT ESTRUTURA (RESOLVIDO) ===== */
+.content {
+    display: flex; /* Flexbox garante que as colunas não se sobreponham */
+    align-items: stretch; /* Faz as duas colunas terem a mesma altura */
+}
+
+.left { 
+    width: 280px; /* Largura fixa da barra lateral */
+    flex-shrink: 0; /* Impede a barra lateral de encolher */
+    padding: 1.2rem; 
+    border-right: 4px solid #1e3a5f; 
+    background: #f4f7fb; 
+}
+
+.right { 
+    flex-grow: 1; /* Preenche o resto do espaço */
+    min-width: 0; /* FUNDAMENTAL: Impede que o conteúdo interno quebre o layout */
+    padding: 1.5rem 2rem; 
+    display: flex; 
+    flex-direction: column; 
+}
+
+/* ===== ELEMENTOS DA ESQUERDA ===== */
+.left h2 { margin: 1.5rem 0 .8rem; font-size: .75rem; text-decoration: underline; }
+.left p { font-size: .65rem; margin-bottom: .5rem; }
+
+.social { display: flex; align-items: center; gap: .6rem; margin-bottom: 1rem; font-size: .6rem; }
+.social img { width: 20px; }
+
+.skills { display: flex; flex-wrap: wrap; gap: .6rem; }
+.skill { width: 48px; height: 48px; background: #1e3a5f; border-radius: 4px; padding: 4px; }
+
+/* ===== ABOUT CARD ===== */
+.about-card {
+    background: #4e73a1;
+    color: white;
+    border: 4px solid #1e3a5f;
+    box-shadow: 6px 6px 0 #1e3a5f;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.about-title-bar {
+    display: flex;
+    align-items: center;
+    padding: .5rem .8rem;
+    background: white;
+    border-bottom: 4px solid #1e3a5f;
+    color: #1e3a5f;
+}
+.about-title-bar h2 { margin: auto; font-size: .65rem; }
+
+/* FIX: Afastando os textos das bordas com padding direito nas classes existentes */
+.about-header {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem 1.5rem 0 1.5rem; /* Topo e laterais */
+    margin-bottom: 1rem;
+}
+
+.about-info { flex: 1; }
+.about-info h3 { font-size: .9rem; margin-bottom: .6rem; }
+.about-info p { font-size: .6rem; margin-bottom: .4rem; }
+
+.about-image img {
+    width: 150px; 
+    height: 150px;
+    image-rendering: pixelated;
+    border: 3px solid #1e3a5f;
+    background: #1e3a5f;
+}
+
+.about-text {
+    padding: 0 1.5rem 1.5rem 1.5rem; /* Laterais e Fundo */
+}
+
+.about-text p { 
+    font-size: .6rem; 
+    line-height: 1.8; 
+    margin-bottom: 0.5rem;
+}
+
+/* ===== EDUCATION TIMELINE (PC) ===== */
+.education {
+    width: 100%;
+}
+
+.education h2 { font-size: .8rem; margin-bottom: 3.5rem; }
+
+.timeline-container { 
+    width: 100%; 
+    padding: 20px 0;
+}
+
+.timeline {
+    position: relative;
+    height: 80px; 
+    width: calc(100% - 60px); /* Mantém a linha perfeitamente dentro da coluna */
+    margin: 0 auto;
+}
+
+.line-solid, .line-dotted {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 4px;
+    background: #1e3a5f;
+    z-index: 1;
+}
+.line-solid { width: 85%; left: 0; }
+.line-dotted { border-top: 4px dotted #1e3a5f; background: none; left: 85%; width: 15%; }
+
+.event {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 120px; 
+    z-index: 2;
+}
+
+.e-2008 { left: 0%; }
+.e-2025 { left: 45%; }
+.e-2026 { left: 85%; }
+
+.event .year { 
+    display: block; 
+    font-size: .6rem; 
+    position: absolute;
+    bottom: 25px; 
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.event .dot {
+    width: 18px;
+    height: 18px;
+    background: #1e3a5f;
+    border: 3px solid #f4f7fb;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.event .desc { 
+    font-size: .5rem; 
+    position: absolute;
+    top: 25px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+/* ===== FOOTER ===== */
+.portfolio-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+    padding-top: 2rem;
+}
+
+.qr-container { text-align: center; }
+.qr-container p { font-size: .5rem; margin-bottom: .6rem; }
+.qr-container img { 
+    width: 130px; 
+    background: white; 
+    padding: 6px; 
+    border: 3px solid #1e3a5f; 
+}
+
+/* ===========================================
+   MEDIA QUERIES (Mobile)
+   =========================================== */
+
+@media (max-width: 850px) {
+    .content { flex-direction: column; } /* Muda flex pra coluna no mobile */
+    .left { width: 100%; border-right: none; border-bottom: 4px solid #1e3a5f; }
+    .right { width: 100%; padding: 1.2rem; }
+}
+
+@media (max-width: 650px) {
+    .about-header { flex-direction: column; text-align: center; align-items: center; padding: 1rem; }
+    .about-text { padding: 0 1rem 1rem 1rem; }
+    .about-image img { width: 100px; height: 100px; margin-top: 1rem; }
+
+    .timeline {
+        height: auto;
+        width: 100%;
+        margin: 0 0 0 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        border-left: 4px solid #1e3a5f;
+        padding-left: 25px;
+    }
+
+    .line-solid, .line-dotted { display: none; }
+
+    .event {
+        position: relative;
+        left: 0 !important;
+        top: 0 !important;
+        transform: none;
+        text-align: left;
+        width: 100%;
+    }
+
+    .event .year { position: static; transform: none; margin-bottom: 5px; }
+    .event .desc { position: static; transform: none; }
+
+    .event .dot {
+        position: absolute;
+        left: -37px; 
+        top: 5px;
+        margin: 0;
+    }
+
+    .portfolio-footer { justify-content: center; margin-top: 2rem; }
+    .qr-container img { width: 100px; }
+}
