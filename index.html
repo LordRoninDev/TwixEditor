@@ -9,6 +9,12 @@
 </head>
 <body>
 
+<!-- Screen flash on load -->
+<div class="screen-flash"></div>
+
+<!-- CRT Scanline overlay -->
+<div class="crt-overlay"></div>
+
 <div class="window">
     <div class="title-bar">
         <div class="dots">
@@ -16,45 +22,64 @@
             <span class="yellow"></span>
             <span class="green"></span>
         </div>
-        <h1>MY RESUME</h1>
+        <h1><span class="typing-title" id="typingTitle">MY RESUME</span></h1>
     </div>
 
     <div class="content">
         <aside class="left">
             <div class="social-container">
-                <div class="social">
+                <a href="https://x.com/Twixinho" target="_blank" rel="noopener noreferrer" class="social slide-left" style="transition-delay: 0.3s">
                     <img src="Assets/X.png" alt="X">
                     <span>@Twixinho</span>
-                </div>
-                <div class="social">
+                </a>
+                <a href="https://www.behance.net/twix21" target="_blank" rel="noopener noreferrer" class="social slide-left" style="transition-delay: 0.5s">
                     <img src="Assets/Behance.png" alt="Behance">
                     <span>behance.net/twix21</span>
+                </a>
+            </div>
+
+            <h2 class="animate-in" style="transition-delay: 0.6s">LANGUAGES</h2>
+            <div class="lang-group">
+                <div class="lang-bar-container animate-in" style="transition-delay: 0.7s">
+                    <span class="lang-label">English</span>
+                    <div class="lang-bar-bg">
+                        <div class="lang-bar-fill" style="--fill-width: 100%"></div>
+                    </div>
+                </div>
+                <div class="lang-bar-container animate-in" style="transition-delay: 0.8s">
+                    <span class="lang-label">Português</span>
+                    <div class="lang-bar-bg">
+                        <div class="lang-bar-fill" style="--fill-width: 100%"></div>
+                    </div>
                 </div>
             </div>
 
-            <h2>LANGUAGES</h2>
-            <div class="lang-group">
-                <p>English ▮▮▮▮▮</p>
-                <p>Português ▮▮▮▮▮</p>
-            </div>
-
-            <h2>LIKINGS</h2>
+            <h2 class="animate-in" style="transition-delay: 0.9s">LIKINGS</h2>
             <div class="likings-group">
-                <p>🎵 Music</p>
-                <p>💻 Editing</p>
-                <p>🎮 Gaming</p>
+                <p class="animate-in" style="transition-delay: 1.0s">🎵 Music</p>
+                <p class="animate-in" style="transition-delay: 1.1s">💻 Editing</p>
+                <p class="animate-in" style="transition-delay: 1.2s">🎮 Gaming</p>
             </div>
 
-            <h2>SKILLS</h2>
-            <div class="skills">
-                <div class="skill"><img src="Assets/Adobe_After_Effects.png" alt="AE"></div>
-                <div class="skill"><img src="Assets/Adobe_Photoshop.png" alt="PS"></div>
-                <div class="skill"><img src="Assets/Adobe_Premiere.png" alt="PR"></div>
+            <h2 class="animate-in" style="transition-delay: 1.3s">SKILLS</h2>
+            <div class="skills animate-in" style="transition-delay: 1.4s">
+                <div class="skill">
+                    <img src="Assets/Adobe_After_Effects.png" alt="AE">
+                    <span class="tooltip">After Effects</span>
+                </div>
+                <div class="skill">
+                    <img src="Assets/Adobe_Photoshop.png" alt="PS">
+                    <span class="tooltip">Photoshop</span>
+                </div>
+                <div class="skill">
+                    <img src="Assets/Adobe_Premiere.png" alt="PR">
+                    <span class="tooltip">Premiere Pro</span>
+                </div>
             </div>
         </aside>
 
         <main class="right">
-            <div class="about-card">
+            <div class="about-card slide-right" style="transition-delay: 0.5s">
                 <div class="about-title-bar">
                     <div class="dots">
                         <span class="red"></span>
@@ -66,7 +91,7 @@
                 
                 <div class="about-header">
                     <div class="about-info">
-                        <h3>Lukas Barros Vieira</h3>
+                        <h3 class="glitch" data-text="Lukas Barros Vieira">Lukas Barros Vieira</h3>
                         <p>lukasbviera63@gmail.com</p>
                         <p>+55 11 93713-5744</p>
                         <p>📍 São Paulo, SP — Brazil</p>
@@ -86,7 +111,7 @@
                 </div>
             </div>
 
-            <section class="education">
+            <section class="education animate-in" style="transition-delay: 0.8s">
                 <h2>EDUCATION</h2>
                 <div class="timeline-container">
                     <div class="timeline">
@@ -114,7 +139,30 @@
                 </div>
             </section>
 
-            <div class="portfolio-footer">
+            <!-- YouTube Video Player Section -->
+            <section class="video-section animate-in" style="transition-delay: 1.0s">
+                <div class="video-card">
+                    <div class="video-title-bar">
+                        <div class="dots">
+                            <span class="red"></span>
+                            <span class="yellow"></span>
+                            <span class="green"></span>
+                        </div>
+                        <h2>▶ MY WORK</h2>
+                    </div>
+                    <div class="video-wrapper">
+                        <iframe 
+                            src="https://www.youtube.com/embed/rnP_Efxiz7s"
+                            title="Portfolio Video"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </section>
+
+            <div class="portfolio-footer animate-in" style="transition-delay: 1.2s">
                 <div class="qr-container">
                     <p>PORTFOLIO HERE</p>
                     <img src="Assets/qr_code.jpeg" alt="QR Code">
@@ -124,5 +172,6 @@
     </div>
 </div>
 
+<script src="script.js"></script>
 </body>
 </html>
